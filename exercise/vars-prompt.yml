@@ -1,0 +1,18 @@
+---
+- hosts: apacheweb
+  gather_facts: no
+  vars:
+   a: 10
+  vars_files:
+   - conf/copyright.yml
+   - conf/webdefaults.yml 
+  vars_prompt:
+   - name: soft_install
+     prompt: type which package you want to install? 
+     private: no
+     default: lynx
+  tasks:
+   - name: Installing {{ soft_install }}
+     yum: name={{ soft_install }} state=latest
+     register: result
+   - debug: var=result

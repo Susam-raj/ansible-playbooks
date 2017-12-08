@@ -1,0 +1,9 @@
+---
+- hosts: local
+  vars:
+    dist: linux
+    acc: 10248982832389
+    conn: ssh
+  tasks:
+  - name: deploying template 
+    template: src=template/jinja.j2 dest=/home/test

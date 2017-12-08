@@ -1,0 +1,19 @@
+---
+- hosts: test
+  sudo: yes
+  gather_facts: no
+  tasks:
+  - name: Install httpd
+    action: yum name=httpd state=latest
+   
+  - name: Pausing 
+    pause: 
+     prompt: "Make sure the installation is complete. . . ."
+    
+  - name: verify lynx installation
+    action: yum name=lynx state=present
+
+  - name: Pausing for 5 seconds
+    pause:
+     seconds: 3
+ 

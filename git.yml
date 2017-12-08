@@ -1,0 +1,5 @@
+--- # This playbook is not working
+- hosts: apacheweb
+  tasks:
+  - name: Checking out a git repo in the remote server
+    git: repo=ssh://root@192.168.88.11/home/test dest=/home/test 

@@ -1,0 +1,11 @@
+---
+- hosts: apacheweb
+  sudo: yes
+  tasks:
+    - name: Send a mail to test user indicating build completion
+      mail: 
+        host='control.local'
+        port=25
+        to='root'
+        subject=' Our host has finished Deploying'
+        body='System called {{ ansible_hostname }} has been successiful setup'

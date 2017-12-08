@@ -1,0 +1,13 @@
+---
+- hosts: local
+  sudo: yes
+  user: root
+  tasks:
+  - name: Install the web server
+    yum: name=httpd state=latest
+  - debug: msg="Equilivent of sudo yum install httpd"
+
+  - name: how long has this system has up
+    shell: /usr/bin/uptime
+    register: result
+  - debug: var=result

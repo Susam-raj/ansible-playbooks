@@ -1,0 +1,15 @@
+---
+- hosts: debian
+  user: root
+  sudo: yes
+  connection: ssh
+  tasks:
+  - name: Equilivent to apt update
+    apt: update_cache=yes
+
+  - name: Equilivant to apt upgrade
+    apt: upgrade=dist
+
+  - name: Installing apache web server
+    apt: name=apache2 state=latest
+

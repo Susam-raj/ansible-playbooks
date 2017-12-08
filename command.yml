@@ -1,0 +1,9 @@
+---
+- hosts: test
+  user: root
+  sudo: yes
+  tasks: 
+  - name: Check for python packages
+    command: ls -la
+    register: result
+  - debug: var=result

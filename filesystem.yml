@@ -1,0 +1,5 @@
+---
+- hosts: webserver
+  tasks:
+  - name:Formatting the remote data Partition
+    filesystem: fstype=ext3 dev=/dev/mapper/ci-root opts="-cc"

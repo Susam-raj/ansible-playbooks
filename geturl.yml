@@ -1,0 +1,5 @@
+---
+- hosts: debian
+  tasks:
+  - name: Get and Download the INI file from the web server
+    get_url: url=https://updates.jenkins-ci.org/download/war/2.93/jenkins.war dest=/home/test mode=0440 #force_basic_auth=yes

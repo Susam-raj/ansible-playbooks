@@ -1,0 +1,17 @@
+---
+- hosts: apacheweb
+  user: root
+  connection: ssh
+  tasks:
+  - name: Install telnet and lynx packages
+    yum: name={{ items }} state=latest
+    with_items:
+    - telnet
+    - lynx
+  - tags:
+    - install
+ - name: Verify Installation
+   raw: yum list installed | grep > /home/install.log
+ - tags:
+   - verify 
+

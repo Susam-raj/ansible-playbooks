@@ -1,0 +1,11 @@
+  
+- hosts: apacheweb
+  user: root
+  sudo: yes
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: Install the Python MySQL Support Libraries
+    yum: pkg=MySQL-python state=latest
+  - name: Create a New Test DB called MyNewDB
+    mysql_db: name=MyDBTest state=present login_user=root login_password=password123 

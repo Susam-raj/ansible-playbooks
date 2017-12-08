@@ -1,0 +1,13 @@
+---
+- hosts: apacheweb
+  sudo: yes
+  connection: ssh
+  tasks:
+  - name: Install httpd
+    yum: pkg=httpd state=latest
+    notify: Restart HTTPD
+
+  handlers:
+  - name: Restart HTTPD
+    service: name=httpd state=absent
+ 

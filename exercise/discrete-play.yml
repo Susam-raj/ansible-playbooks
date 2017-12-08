@@ -1,0 +1,12 @@
+---
+- hosts: apacheweb
+  become: true
+  connection: ssh
+  gather_facts: no
+  tasks:
+  - include: play/play1.yml
+  
+  - name: ENsuring the package is installed
+    raw: yum list installed | grep httpd 
+    register: result
+  - debug: var=result 

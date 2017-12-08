@@ -1,0 +1,8 @@
+- name: Installing lynx and httpd
+  yum: name={{ item }} state=latest
+  with_items:
+   - httpd
+   - lynx
+  notify: Restart HTTPD 
+    
+

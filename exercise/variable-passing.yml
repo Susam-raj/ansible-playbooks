@@ -1,0 +1,14 @@
+---
+- hosts: apacheweb
+  user: '{{ usr }}'
+  gather_facts: '{{ facts }}'
+  vars_prompt:
+   - name: install_pkg
+     prompt: What you want to install?
+     default: lynx
+     
+  tasks:
+   - name: Install {{ install_pkg }} 
+     yum: name={{ install_pkg }} state=latest
+
+  

@@ -1,0 +1,11 @@
+---
+- hosts: local
+  tasks:
+  - name: Installing Apache
+    action: yum name=httpd state=latest
+    notofy: Restart Apache
+
+
+  handlers:
+  - name: Restart Apache
+    service: name=httpd state=restarted

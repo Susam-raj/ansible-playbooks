@@ -1,0 +1,44 @@
+---
+- hosts: all
+  become: true
+  gather_facts: yes
+  tasks:
+  - name: Taking Time stamps
+    command: /bin/date
+    register: timestamp_start
+  - debug: var=timestamp_start
+
+  - name: Install apache web server
+    yum: name=httpd state=latest
+    async: 30000
+    pool: 3
+    when: ansible_os_family  == 'Redhat'
+    notify: Start Httpd
+  
+
+  - name: Verify that httpd is running
+    service: name=httpd state=restarted
+  - name: verify httpd is running
+    command: systemctl status httpd
+    register: result
+  - debug: var=result
+
+
+  - name: Installing Telnet 
+    yum: pkg=telnet state=absent
+  - name: Installing lynx
+    yum: name=lynx state=absent
+  - name: all the package are installed in the system
+    command: yum list installed
+    register: output_file
+  - debug: var=output_file
+
+  - name: Taking last time stamps
+    command: /bin/date
+    register: timestamp_end
+  - debug: var=timestamp_end
+ 
+  handlers:
+  - name: Start Httpd
+    service: name=httpd state=restarted    
+  

@@ -1,0 +1,7 @@
+---
+- hosts: local
+  tasks:
+  - name: Install pythone mysql support library
+    yum: name=MySQL-python state=latest
+  - name: Create a new Test DB called my new Db
+    mysql_db: name=MyNewDB state=present login_user=root login_password=Urlabariurlabari@4  

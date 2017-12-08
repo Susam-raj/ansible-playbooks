@@ -1,0 +1,6 @@
+---
+- hosts: local
+  tasks: 
+   - name: Copy and unarchive file
+     unarchive: src=test.tar.gz dest=home/test/unarchive  
+

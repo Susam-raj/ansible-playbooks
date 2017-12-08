@@ -1,0 +1,10 @@
+- name: Install httpd
+  yum: name=httpd state=latest
+
+- name: Install lynx
+  yum: name=lynx state=latest
+
+- name: Install telnet
+  yum: pkg=telnet state=latest
+
+

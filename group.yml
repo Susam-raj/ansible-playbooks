@@ -1,0 +1,7 @@
+---
+- hosts: apacheweb
+  connection: ssh
+  tasks:
+  - name: Add a new Group called new group
+    group: name=newgroup state=present gid=1050 system=yes
+   

@@ -1,0 +1,12 @@
+---
+- hosts: all
+  user: root
+  sudo: yes
+  connection: ssh
+  
+  tasks:
+  - name: Copy remote host file to control server
+    fetch: src=/etc/ansible/hosts dest=/home/test/prefix-{{ ansible_all_ipv4_addresses }} flat=yes
+
+
+

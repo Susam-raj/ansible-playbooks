@@ -1,0 +1,7 @@
+---
+- hosts: apacheweb
+  tasks:
+   - name: Find the uptime for hosts above
+     raw: /usr/bin/uptime
+     register: pp
+   - debug: var=pp

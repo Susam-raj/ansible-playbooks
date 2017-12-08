@@ -1,0 +1,7 @@
+---
+- hosts: apacheweb
+  tasks:
+   - name: installing apache
+     yum: name=httpd state=latest
+   - name: Listening to port 8080  
+     wait_for: port=8080 state=started

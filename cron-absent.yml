@@ -1,0 +1,6 @@
+---
+- hosts: local
+  user: root
+  tasks:
+  - name: Add a cron Job to Root User
+    cron: name="list files" state=absent

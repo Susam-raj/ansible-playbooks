@@ -1,0 +1,13 @@
+---
+- hosts: apacheweb
+  tasks:
+  - name: Installing Apache
+    yum: name=httpd state=latest
+  - name: Varifying that Apache is installed and moving forward
+    pause: 
+     prompt: Verify that Apache is installed. . .
+  - name: Installing Lynx
+    yum: name=lynx state=latest
+  - name: pausing for 5 secs
+    pause:
+     seconds: 5

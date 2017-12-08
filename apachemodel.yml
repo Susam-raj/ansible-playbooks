@@ -1,0 +1,6 @@
+---
+- hosts: debian
+  user: root
+  tasks:
+    - name: Disable the alias module in apache2
+      apache2_module: name=alias state=present force=yes

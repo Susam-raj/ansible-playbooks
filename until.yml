@@ -1,0 +1,14 @@
+---
+- hosts: apacheweb
+  sudo: yes
+  gather_facts: no
+  tasks:
+  - name: Install Apache webserver
+    yum: pkg=httpd state=latest
+  - name: verify service status of Apache
+    shell: systemctl status httpd 
+    register: result
+    until: result.stdout.find("active (running)") != -1
+    retries: 5
+    delay: 5
+  - debug: var=result

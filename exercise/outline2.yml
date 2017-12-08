@@ -1,0 +1,15 @@
+---
+- hosts: local
+
+  connection: ssh
+  user: root
+  tasks:
+  - name: Install apache
+    yum: pkg=httpd state=latest update_cache=yes
+    notify: Restart httpd
+ - handlers:
+  - name: Restart httpd
+    service: name=httpd state=restarted
+
+  
+

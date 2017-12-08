@@ -1,0 +1,11 @@
+---
+- hosts: apacheweb
+  become: true
+  tasks:
+  - name: Install lynx
+    yum: name=lynx state=present
+  - name: Install telnet
+    yum: name=telnet state=present
+  - name: Install httpd
+    yum: name=httpd state=present
+ 

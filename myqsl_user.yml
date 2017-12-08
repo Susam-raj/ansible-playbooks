@@ -1,0 +1,7 @@
+---
+- hosts: apacheweb
+  tasks:
+  - name: Install the MySQL Python Support Library
+    yum: pkg=MySQL-python state=latest
+  - name: Create a new user called BOB and give him all access
+    mysql_user: name=bob password=password123 priv=*.*:ALL state=present login_user=root login_password=Urlabarurlabari@4

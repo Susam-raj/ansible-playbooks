@@ -1,0 +1,9 @@
+---
+- hosts: apacheweb
+  become: true
+  vars_files:
+    - variables/variables.yml
+  tasks:
+   - include: packages/packages.yml
+   - include: commands/commands.yml
+   - include: handlers/handlers.yml

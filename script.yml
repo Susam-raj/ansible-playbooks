@@ -1,0 +1,7 @@
+---
+- hosts: apacheweb
+  gather_facts: no
+  tasks:
+  - script: /etc/ansible/playbook/system_uptime.sh creates=/home/uptime.log 
+    register: result
+  - debug: var=result  

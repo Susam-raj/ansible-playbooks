@@ -1,0 +1,10 @@
+
+---
+- hosts: test
+  connection: ssh
+  gather_facts: no
+  sudo: yes
+  tasks:
+  - name:
+    copy: src=/etc/ansible/hosts dest=/home/test/hosts owner=test group=test mode=655 backup=true
+

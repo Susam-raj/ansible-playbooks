@@ -1,0 +1,7 @@
+---
+- hosts: local
+  user: root
+  tasks:
+  - name: Add a cron Job to Root User
+    cron: name="list files" minute="0" hour="1" job="ls -al /etc > /home/test/croneresult.log"
+

@@ -1,0 +1,6 @@
+---
+- hosts: local
+  gather_facts: no
+  tasks:
+  - name: Installing Apache webserver using DNF
+    dnf: name=httpd state=latest 

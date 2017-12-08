@@ -1,0 +1,9 @@
+---
+- hosts: '{{ hosts}}'
+  become: true
+  gather_facts: '{{ gather }}'
+  tasks:
+  - name: Installing user prompt software
+    yum: name={{ software }} state=latest
+
+  

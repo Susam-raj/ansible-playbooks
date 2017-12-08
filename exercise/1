@@ -1,0 +1,9 @@
+---
+- hosts: apacheweb
+  sudo: yes
+  gather_facts: no
+  tasks:
+    - include: play/play.yml
+    - name: Verifying Telnet is installed 
+      raw: yum list installed | grep telnet > /home/test/
+ 

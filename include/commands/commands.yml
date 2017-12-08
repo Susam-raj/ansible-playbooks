@@ -1,0 +1,3 @@
+- name: Ensure httpd and lynx are installed
+  raw: yum list installed | grep lynx > ./log.log
+

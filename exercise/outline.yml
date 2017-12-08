@@ -1,0 +1,28 @@
+---
+- hosts: apacheweb
+  connection: ssh
+  user: root
+  sudo: yes
+  tasks:
+
+  - name: indicate to capture pre-task timestamp
+    raw: /bin/date
+    register: beg_time
+  - debug: var=beg_time
+  
+  - name: Install apache web server, telnet client, and lynx web browser
+    yum: pkg={{ item }} state=latest update_cache=yes
+    with_items:
+      - httpd
+      - telnet
+      - lynx
+
+  - name: Capture the list of all the installed packages
+    shell: yum list installed > /home/test/capture.log
+
+  - name: indicate to capture a post-task timestamp
+    raw: /bin/date
+    register: end_time
+  - debug: var=end_time
+
+

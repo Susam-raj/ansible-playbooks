@@ -1,0 +1,14 @@
+# Configuration for custom wigget
+
+<Connictivity>
+   connectionType SSH
+</Connictivity>
+
+<Account Information>
+   userName root
+   userPassword redhat
+</Account Information>
+
+<System Information>
+   DistributionType Linux
+</System Information>

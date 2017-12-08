@@ -1,0 +1,5 @@
+---
+- hosts: apacheweb
+  tasks:
+  - name: blacklist the DUMMY kernel module
+    kernel_blacklist: name=dummy state=present

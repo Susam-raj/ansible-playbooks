@@ -1,0 +1,9 @@
+---
+- hosts: apacheweb
+  gather_facts: no
+  connection: ssh
+  tasks:
+  - include: plays/packages.yml 
+  - name: ensure telnet package is installed
+    #command: yum list installed | grep telnet > /home/abc
+    shell: yum list installed | grep telnet > /home/abc

@@ -1,0 +1,8 @@
+---
+- hosts: local
+  connection: local
+  gather_facts: no
+  tasks:
+   - name: Install telnet
+     yum: name=telnet state=latest update_cache=yes
+     

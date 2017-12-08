@@ -1,0 +1,9 @@
+---
+- hosts: apacheweb
+  tasks:
+    - name: #Change SELinux Configuration to Permissive
+      selinx: policy=targated state=disabled
+
+
+
+

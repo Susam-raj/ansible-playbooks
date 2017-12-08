@@ -1,0 +1,25 @@
+---
+- hosts: local
+  user: root
+  sudo: true
+  connection: ssh
+  gather_facts: false
+  vars: 
+    playbook_version: 0.1b
+  vars_files:
+  - conf/copyright.yml
+  - conf/webdefaults.yml
+  vars_prompt:
+  - name: web_domain
+    prompt: Web Domain  
+  tasks:
+  - name: Install Apache web server
+    yum: name=httpd state=latest
+    notify: Restart HTTPD
+  handlers:
+  - name: Restart HTTPD
+    service: name=httpd state=restarted
+    
+
+
+

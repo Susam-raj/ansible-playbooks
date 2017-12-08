@@ -1,0 +1,4 @@
+
+- name: installing telnet
+  yum: pkg=telnet state=latest
+ 

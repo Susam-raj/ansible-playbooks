@@ -1,0 +1,21 @@
+---
+- hosts: all
+  tasks:
+  - name: Creating Working folder
+    file: path=/opt/working state=directory
+
+  - name: Creating work-folder in /opt
+    file: path=/opt/working/{{ ansible_hostname }} state=directory
+
+  - name: Creating required files under {{ ansible_hostname }}
+    file: path=/opt/working/{{ ansible_hostname }}/{{ item }} state=directory
+    with_items:
+      - defaults
+      - files
+      - handlers
+      - meta
+      - tasks
+      - templates
+      - vars
+
+

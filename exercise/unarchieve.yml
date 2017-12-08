@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks:
+  - name: Unzipping tar file from control server to remote hosts
+    unarchive: src=/home/test/apache-tomcat-7.0.82.tar.gz dest=/tmp
+

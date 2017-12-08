@@ -1,0 +1,6 @@
+---
+- hosts: debian
+  tasks:
+  - name: Mount the remote data partition
+    mount: name=/tmp/data src=/dev/mapper/ubuntu--vg-root fstype=ext3 opts=rw state=present
+  

@@ -1,0 +1,7 @@
+---
+- hosts: apacheweb
+  connection: ssh
+  tasks:
+  - name: An exaple of future command with AT model
+    at: command="ls /var/log > /home/test/at1.log" count=1 units="minutes"
+

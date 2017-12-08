@@ -1,0 +1,8 @@
+---
+- hosts: debian
+  tasks:
+  - name: Install a dependency needed for apt_repository
+    apt: pkg=pythone-apt state=present
+
+  - name: Add a google rewpo for Ubuntu
+    apt_repository: https://dl.google.com/linux/linux_signing_key.pub state=present

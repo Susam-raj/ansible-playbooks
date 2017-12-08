@@ -1,0 +1,9 @@
+---
+- hosts: appserver
+  vars_files:
+  - vars.yml
+  
+  tasks:
+  - name: Install lynx in appserver
+    yum: pkg=lynx state=absent update_cache=true
+

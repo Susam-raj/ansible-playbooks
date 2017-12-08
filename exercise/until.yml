@@ -1,0 +1,20 @@
+---
+- hosts: apacheweb
+  become: true
+  gather_facts: no
+  tasks:
+  - name: Name Installing Httpd
+    yum: pkg=httpd state=latest
+
+ # - name: Start httpd
+  #  service: name=httpd state=restarted
+
+  - name: Ensure httpd is running
+    shell: systemctl status httpd
+    register: result
+    until: result.stdout.find("active (running)") != -1
+    retries: 5
+    delay: 5
+  - debug: var=result
+
+  
